@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    font-family: Arial, sans-serif;
+}
+
+/* Shtresa me efektin e opacitetit dhe blur */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(2, 35, 97, 0.8);
+    padding: 15px 30px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: background-color 0.3s;
+    border-radius: 10px;
+}
+
+.navbar:hover {
+    background-color: rgba(2, 35, 97, 1);
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+/* Stilet për lidhjet kryesore */
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 60px;
+    margin: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links li a {
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: rgba(0, 0, 0, 0.8);
+}
+/* Stilet për lidhjet kryesore */
+
+/* Stilet për dropdown-in */
+.nav-links li ul {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 67, 211, 0.5);
+    border-radius: 5px;
+    padding: 10px 0;
+    min-width: 180px;
+    top: 100%;
+    left: 0;
+    list-style-type: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links li:hover ul {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-links li ul li a {
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.nav-links li ul li a:hover {
+    background-color: rgba(0, 132, 255, 0.8);
+}
+/* Stilet për dropdown-in */
+
+.user-options {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.login{
+    text-decoration: none;
+    color: white;
+    border-radius: 4px;
+    padding: 10px 15px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.login:hover{
+    border: 30px;
+    background-color:  rgba(0, 132, 255, 0.8);
+}
+
+.user-icon img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s;
+}
+
+/* Mesazhi Hyrës me stil të ri */
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.welcome-message {
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.welcome-message h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    line-height: 1.3;
+    letter-spacing: 1px;
+    animation: slideIn 1s ease-out forwards;
+    opacity: 0;
+}
+
+.welcome-message p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* Butoni me animacion */
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    background-color: rgba(0, 132, 255, 0.9);
+    border-radius: 30px;
+    transition: background-color 0.3s, transform 0.3s;
+    animation: pulse 2s infinite;
+}
+
+.btn:hover {
+    background-color: rgba(0, 67, 211, 1);
+    transform: scale(1.1);
+}
