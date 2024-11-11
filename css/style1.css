@@ -62,7 +62,7 @@ body::before {
 }
 
 .nav-links li a {
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 15px 20px;
     text-decoration: none;
     display: block;
@@ -248,6 +248,7 @@ body::before {
 .about-icon:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 20px rgba(255, 255, 255, 0.5);
+    cursor: pointer;
 }
 
 
@@ -266,3 +267,257 @@ body::before {
     font-size: 1rem;
     line-height: 1.5;
 }
+
+/*-------------------------------contactus---------------------*/
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 10px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+.contact-container {
+    background: rgba(6, 69, 124, 0.5);
+    padding: 30px 40px;
+    margin: 35px auto;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.contact-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: rgb(158, 172, 197);
+}
+
+.contact-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: rgb(158, 172, 197);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(202, 181, 181);
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 3px solid hsl(239, 68%, 16%);
+    transition: border-color 0.3s;
+    background-color: rgb(193, 186, 186)
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    color: rgb(15, 15, 16);
+}
+
+.btn {
+    background-color: #023cb8;
+    background: black
+    padding 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #111114;
+}
+
+.contact-info {
+    margin-top: 30px;
+}
+
+.contact-info h2 {
+    font-size: 2rem;
+    color: rgb(158, 172, 197);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    
+}
+#email{
+    color: rgb(158, 172, 197);
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: #375fb6;
+    margin-right: 10px;
+}
+
+.info-item p {
+    font-size: 1rem;
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+* {
+    margin: 0;
+    padding: 0 ;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    
+}
+
+/*------------------------LogIN-------------------*/
+
+.login-container {
+    width: 400px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #fff;
+    ;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.login-form .input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.login-form .input-container input {
+    width: 100%;
+    padding: 10px 15px;
+    background: none;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    
+}
+
+.login-form .input-container label {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 16px;
+    color: #ddd;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.login-form .input-container input:focus + label,
+.login-form .input-container input:not(:placeholder-shown) + label {
+      top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color: #9766c5;
+    
+    
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #6e8efb;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #a777e3;
+}
+
+.signup-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.signup-link a {
+    color: #6e8efb;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.signup-link a:hover {
+    color: #a777e3;
+}
+.position{
+        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 90px 20px;
+    margin: 90px auto;
+        
+
+        
+       
+    
+}
+
