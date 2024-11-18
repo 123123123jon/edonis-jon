@@ -421,6 +421,8 @@ body {
     
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------- */
+/*                                       Create Account                                                                       */
 /*------------------------LogIN-------------------*/
 
 .login-container {
@@ -468,7 +470,7 @@ h2 {
 
 .login-form .input-container input:focus + label,
 .login-form .input-container input:not(:placeholder-shown) + label {
-      top: -10px;
+    top: -10px;
     left: 10px;
     font-size: 12px;
     color: #9766c5;
@@ -520,4 +522,5 @@ button:hover {
        
     
 }
+/*                                       Create Account                                                                       */
 
