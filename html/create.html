@@ -10,7 +10,7 @@
     <div class="position">
         <div class="login-container">
             <h2>Create an Account</h2>
-            <form class="login-form">
+            <form class="login-form" id="passwordForm">
                 <div class="input-container">
                     <input type="text" required>
                     <label>Full Name</label>
@@ -28,12 +28,13 @@
                     <label>Password</label>
                 </div>
                 <div class="input-container">
-                    <input type="password" required>
+                    <input type="password" id="confirm" required>
                     <label>Confirm Password</label>
                 </div>
                 <button type="submit">Create Account</button>
                 <p class="signup-link">Already have an account? <a href="login.html">Login</a></p>
             </form>
+            <p id="vlersimi" class="error"></p>
         </div>
     </div>
 </body>
