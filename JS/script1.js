@@ -5,7 +5,7 @@ const confirm = document.getElementById("confirm");
 
 function validoPassword(password, confirm2){
 
-    const errors=[];
+    const errors=[];    
 
     if(!/[A-Z]/.test(password)){
         errors.push("Fjalkalimi duhet te kete se paku nje shkronje te madhe");
