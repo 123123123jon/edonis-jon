@@ -523,6 +523,7 @@ button:hover {
 
 #carouselExampleControls{
     margin: 10px 200px;
+    margin-top: 20px;
 }
 
 .carousel-item{
