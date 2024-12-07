@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="../css/style1.css">
+</head>
+<body>
+    <div class="position">
+        <div class="login-container">
+            <h2>Create an Account</h2>
+            <form class="login-form" id="passwordForm">
+                <div class="input-container">
+                    <input type="text" required>
+                    <label>Full Name</label>
+                </div>
+                <div class="input-container">
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-container">
+                    <input type="password" name="password" id="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="confirm" required>
+                    <label>Confirm Password</label>
+                </div>
+                <button type="submit">Create Account</button>
+                <p class="signup-link">Already have an account? <a href="login.html">Login</a></p>
+            </form>
+            <p id="vlersimi" class="error"></p>
+        </div>
+    </div>
+</body>
+<script src="../JS/script1.js"></script>
+</html>
