@@ -1,0 +1,48 @@
+#carouselExampleControls{
+    margin: 10px 200px;
+    margin-top: 20px;
+}
+
+.carousel-item{
+    width: 100%;
+    height: 500px;
+}
+
+.carousel-item img{
+    width: 100%;
+    height: 100%;
+}
+
+.renditi{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+
+.imazhet{
+    display: inline-block;
+    justify-content: space-between;
+    color: white;
+    border-radius: 100%;
+    text-align: center;
+    flex: 1 1 calc(26.33% - 10px);
+    max-width: calc(26.33% - 10px);
+
+}
+
+.imazhet img{
+    width: 300px;
+    border-radius: 10%;
+}
+
+.imazhet div{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.imazhet div strong{
+    color: red;
+}
