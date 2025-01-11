@@ -46,3 +46,134 @@
 .imazhet div strong{
     color: red;
 }
+
+/* Për rezolucione më të vogla se 1200px */
+@media (max-width: 1200px) {
+    .renditi {
+        gap: 50px;
+    }
+
+    .imazhet img {
+        width: 250px;
+    }
+}
+
+/* Për rezolucione më të vogla se 992px */
+@media (max-width: 992px) {
+    .renditi {
+        gap: 40px;
+    }
+
+    .imazhet img {
+        width: 220px;
+    }
+
+    .imazhet div {
+        flex-direction: column;
+    }
+}
+
+/* Për rezolucione më të vogla se 768px */
+@media (max-width: 768px) {
+    .renditi {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .imazhet {
+        max-width: 80%;
+    }
+
+    .imazhet img {
+        width: 200px;
+    }
+}
+
+/* Për rezolucione më të vogla se 576px */
+@media (max-width: 576px) {
+    .renditi {
+        gap: 20px;
+    }
+
+    .imazhet img {
+        width: 180px;
+    }
+}
+
+/* Për rezolucione më të vogla se 1200px */
+@media (max-width: 1200px) {
+    #carouselExampleControls {
+        margin: 10px 50px;
+    }
+
+    .carousel-item {
+        height: 400px;
+    }
+
+    .imazhet img {
+        width: 250px;
+    }
+}
+
+/* Për rezolucione më të vogla se 992px */
+@media (max-width: 992px) {
+    .renditi {
+        gap: 40px;
+        justify-content: center;
+    }
+
+    .imazhet {
+        flex: 1 1 calc(45% - 10px);
+        max-width: calc(45% - 10px);
+    }
+
+    .carousel-item {
+        height: 300px;
+    }
+
+    .imazhet img {
+        width: 200px;
+    }
+}
+
+/* Për rezolucione më të vogla se 768px */
+@media (max-width: 768px) {
+    #carouselExampleControls {
+        margin: 10px 20px;
+    }
+
+    .imazhet {
+        flex: 1 1 calc(100% - 20px);
+        max-width: calc(100% - 20px);
+    }
+
+    .carousel-item {
+        height: 250px;
+    }
+
+    .imazhet img {
+        width: 150px;
+    }
+
+    .imazhet div {
+        flex-direction: column;
+    }
+}
+
+/* Për rezolucione më të vogla se 576px */
+@media (max-width: 576px) {
+    .renditi {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imazhet img {
+        width: 100px;
+    }
+
+    .carousel-item {
+        height: 200px;
+    }
+}
+
