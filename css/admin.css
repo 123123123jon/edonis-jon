@@ -77,4 +77,6 @@ th, td{
     background-color: blue;
     border: none;
     margin-top: 40vh;
+    color: white;
+    text-decoration: none;
 }
