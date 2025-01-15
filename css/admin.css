@@ -27,6 +27,7 @@ body::before {
 
 .lista{
     font-size: large;
+    margin-bottom: 0px;
 }
 
 .lista li{
@@ -71,12 +72,13 @@ th, td{
     display: none;
 }
 
+.rendi4{
+    display: none;
+}
+
 .buttoni{
     padding: 10px;
     border-radius: 50%;
     background-color: blue;
     border: none;
-    margin-top: 40vh;
-    color: white;
-    text-decoration: none;
 }
