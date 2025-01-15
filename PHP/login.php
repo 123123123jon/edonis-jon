@@ -1,25 +1,36 @@
 <?php
 include_once('config.php');
 
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $stmt = $connect->prepare("SELECT password, role FROM user WHERE username=?");
+    $stmt = $conn->prepare("SELECT password, role FROM user WHERE username=?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
-    $stmt->bind_result($hashed_password, $role);
-    $stmt->fetch();
+    $stmt->store_result();
 
-    if ($stmt->num_rows > 0 && password_verify($password, $hashed_password)) {
-        if($role === 'Admin') {
-            header("Location: ../PHP/admin.php");
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($hashed_password, $role);
+        $stmt->fetch();
+
+        if (password_verify($password, $hashed_password)) {
+            if ($role === 'Admin') {
+                header("Location: ../PHP/admin.php");
+            } else {
+                header("Location: ../html/index.html");
+            }
+            exit();
         } else {
-            header("Location: ../html/index.html");
+            echo "Username ose Password jane gabim";
+            exit();
         }
-        exit();
     } else {
-        echo "Username ose Password i gabuar.";
+        echo "Username ose Password jane gabim";
+        exit();
     }
+
+    $stmt->close();
+    $conn->close();
 }
 ?>

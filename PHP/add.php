@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
 
     $pergatite->execute();
 
-    header("Location: ../htmlphp/login.html");
+    header("Location: ../html/login.html");
     exit();
 
 }

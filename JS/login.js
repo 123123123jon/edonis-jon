@@ -6,7 +6,6 @@ const error = document.getElementById('error');
 
 
 loginForm.addEventListener('submit', function (e) {
-    e.preventDefault(); 
 
     const username = usernameField.value.trim();
     const password = passwordField.value.trim();
@@ -24,8 +23,4 @@ loginForm.addEventListener('submit', function (e) {
         error.textContent = "Password duhet te ket te pakten 9 karaktere.";
         return;
     }
-
-    
-    error.textContent = "";
-    alert("Login i suksesshëm!");
 });
