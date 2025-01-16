@@ -177,3 +177,26 @@
     }
 }
 
+
+#karusel {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI light', Tahoma;
+    width: 700px;
+    margin: 0 auto;
+}
+
+#karusel img {
+    max-width: 700px;
+    height: 420px;
+}
+#btn {
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    font: 10pt;
+    color: blue;
+}
+
