@@ -14,6 +14,11 @@
 
         session_start();
 
+        if ($_SESSION['role'] !== 'Admin') {
+            header("Location: ../html/index.php");
+            exit();
+        }
+
         include_once("config.php");
 
         if(!$connect){
@@ -30,14 +35,14 @@
 
     <div style="text-align: center; background-color: rgba(2, 35, 97, 0.8); width: 250px; height: 100vh;">
         <img border="3px" style="width: 100px; border-radius: 40%; margin-top: 10px; border-radius: 40%;" src="../img/JonKomani.jpg" alt="logoja">
-        <h3 style="padding-bottom: 40px;">Jon Komani</h3>
+        <h3 style="padding-bottom: 40px;"><?php echo $_SESSION['username'] ?></h3>
 
         <ul type="none" class="lista">
             <li class="home"><i class="bi bi-house-door" style="padding-right: 30px;"></i>Home</li>
             <li class="product"><i class="bi bi-box-seam" style="padding-right: 30px;"></i>Products</li>
             <li class="user"><i class="bi bi-people" style="padding-right: 30px;"></i>Users</li>
             <li class="contact"><i class="bi bi-person-lines-fill" style="padding-right: 30px;"></i>Contact</li>
-            <li><i class="bi bi-window"style="padding-right: 30px;"></i><a style="text-decoration: none; color: white;"  href="../html/index.html"> Website</a></li>
+            <li><i class="bi bi-window"style="padding-right: 30px;"></i><a style="text-decoration: none; color: white;"  href="../html/index.php"> Website</a></li>
         </ul>
 
         <button class="buttoni"><a href="../PHP/logout.php" style="color: white; text-decoration: none; margin-top: 50px;">LogOut</a></button>
@@ -102,7 +107,18 @@
     </div>
 
     <div class="rendi4">
-        <h3>pershendtje</h3> 
+        <div>
+            <h2>Number of Users</h2>
+            <p>Numri</p>
+        </div>
+        <div>
+            <h2>Number of Product sales</h2>
+            <p>Numri</p>
+        </div>
+        <div>
+            <h2>Number of Product sales</h2>
+            <p>Numri</p>
+        </div>
     </div>
 </body>
 </html>

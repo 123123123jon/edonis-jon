@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 include_once('config.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -15,10 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->fetch();
 
         if (password_verify($password, $hashed_password)) {
+            $_SESSION['username'] = $username;
+            $_SESSION['role'] = $role;
+
             if ($role === 'Admin') {
                 header("Location: ../PHP/admin.php");
             } else {
-                header("Location: ../html/index.html");
+                header("Location: ../html/index.php");
             }
             exit();
         } else {

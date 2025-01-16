@@ -73,7 +73,15 @@ th, td{
 }
 
 .rendi4{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     display: none;
+}
+
+.rendi4 div{
+    background-color: red;
+    color: white;
 }
 
 .buttoni{

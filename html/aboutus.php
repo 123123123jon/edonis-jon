@@ -9,24 +9,27 @@
 </head>
 <body>
 
+    <?php
+        session_start();
+    ?>
+
     <div class="navbar">
         <a href="index.html" class="logo"><img src="../img/logo.png" alt=""></a>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li>
-                <a href="product.html">Products</a>
+                <a href="product.php">Products</a>
                 <ul>
                     <li><a href="#">Switch</a></li>
                     <li><a href="router.html">Router</a></li>
                     <li><a href="#">Module Wifi</a></li>
                 </ul>
             </li>
-            <li><a href="aboutus.html">About Us</a></li>
-            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="aboutus.php">About Us</a></li>
+            <li><a href="contactus.php">Contact Us</a></li>
         </ul>
         <div class="user-options">
-            <p style="color: white;">Guest</p>
-            <a href="login.html" class="login">Log In</a>
+            <p style="color: white;"><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Guest'; ?></p>
             <a href="login.html" class="user-icon">
                 <img src="../img/useri.png" alt="Ikona e perdoruesit">
             </a>
