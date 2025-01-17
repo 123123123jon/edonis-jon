@@ -39,12 +39,10 @@
         </div>
     </div>
 
-    <div style="display: flex; flex-direction: row; align-items:center;">
-      <button id="btn">Back</button>
-      <div id="karusel">
-          <img name="mySlide" id="drejto" />
-      </div>
-      <button id="btn" onclick="vazhdo()">Next</button>
+    <div id="karusel">
+      <button id="btn-back" class="button" onclick="previousImage()">Back</button>
+      <img name="mySlide" id="drejto" />
+      <button id="btn-next" class="button" onclick="vazhdo()">Next</button>
     </div>
 
       <div style="gap: 10px;">

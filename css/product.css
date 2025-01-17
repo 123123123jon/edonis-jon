@@ -180,10 +180,9 @@
 
 #karusel {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-family: 'Segoe UI light', Tahoma;
+    position: relative; /* Për të vendosur butonat në pozita absolute */
     width: 700px;
     margin: 0 auto;
 }
@@ -192,11 +191,25 @@
     max-width: 700px;
     height: 420px;
 }
-#btn {
-    border-radius: 100%;
+
+.button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     width: 40px;
     height: 40px;
+    border-radius: 50%;
     font: 10pt;
-    color: blue;
+    color: white;
+    background-color: rgba(2, 35, 97, 0.8);
+    border: 2px solid white;
+    cursor: pointer;
 }
 
+#btn-back {
+    left: 10px; /* Pozicioni i butonit të majtë */
+}
+
+#btn-next {
+    right: 10px; /* Pozicioni i butonit të djathtë */
+}
