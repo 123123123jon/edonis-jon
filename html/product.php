@@ -1,33 +1,32 @@
+<?php
+    session_start();
+    include_once("../PHP/config2.php"); 
+    $stmt = $connect->prepare("SELECT * FROM products");
+    $stmt->execute();
+    $result = $stmt->get_result();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
+    <title>Products</title>
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/product.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <script src="../JS/slider.js"></script>
 </head>
 <body>
-
-    <?php
-      session_start();
-    ?>
- 
 
     <div class="navbar">
         <a href="index.html" class="logo"><img src="../img/logo.png" alt=""></a>
         <ul class="nav-links">
             <li><a href="index.php">Home</a></li>
-            <li>
-                <a href="product.php">Products</a>
-                <ul>
-                    <li><a href="#">Switch</a></li>
-                    <li><a href="router.html">Router</a></li>
-                    <li><a href="#">Module Wifi</a></li>
-                </ul>
-            </li>
+            <li><a href="product.php">Products</a></li>
             <li><a href="aboutus.php">About Us</a></li>
             <li><a href="contactus.php">Contact Us</a></li>
         </ul>
@@ -40,95 +39,35 @@
     </div>
 
     <div id="karusel">
-      <button id="btn-back" class="button" onclick="previousImage()">Back</button>
-      <img name="mySlide" id="drejto" />
-      <button id="btn-next" class="button" onclick="vazhdo()">Next</button>
-    </div>
+        <button id="btn-back" class="button" onclick="previousImage()">Back</button>
+        <img name="mySlide" id="drejto" />
+        <button id="btn-next" class="button" onclick="vazhdo()">Next</button>
 
-      <div style="gap: 10px;">
-        <div class="renditi">
-            <div class="imazhet">
-              <img src="../img/Router.jpg" alt="Router">
-              <div>
-                <h5>Router W5</h5>
-                <strong>400$</strong>
-                <i class="bi bi-bag fs-4"></i>
-              </div>
-            </div>
-            
-            <div class="imazhet">
-              <img src="../img/Router.jpg" alt="Router">
-              <div>
-                <h5>Router W5</h5>
-                <strong>400$</strong>
-                <i class="bi bi-bag fs-4"></i>
-              </div>
-            </div>
 
-            <div class="imazhet">
-              <img src="../img/Router.jpg" alt="Router">
-              <div>
-                <h5>Router W5</h5>
-                <strong>400$</strong>
-                <i class="bi bi-bag fs-4"></i>
-              </div>
-            </div>
-
-          <div class="imazhet">
-            <img src="../img/Router.jpg" alt="Router">
-            <div>
-              <h5>Router W5</h5>
-              <strong>400$</strong>
-              <i class="bi bi-bag fs-4"></i>
-            </div>
-          </div>
-          
-          <div class="imazhet">
-            <img src="../img/Router.jpg" alt="Router">
-            <div>
-              <h5>Router W5</h5>
-              <strong>400$</strong>
-              <i class="bi bi-bag fs-4"></i>
-            </div>
-          </div>
-
-          <div class="imazhet">
-            <img src="../img/Router.jpg" alt="Router">
-            <div>
-              <h5>Router W5</h5>
-              <strong>400$</strong>
-              <i class="bi bi-bag fs-4"></i>
-            </div>
-          </div>
-
-        <div class="imazhet">
-          <img src="../img/Router.jpg" alt="Router">
-          <div>
-            <h5>Router W5</h5>
-            <strong>400$</strong>
-            <i class="bi bi-bag fs-4"></i>
-          </div>
-        </div>
-        
-        <div class="imazhet">
-          <img src="../img/Router.jpg" alt="Router">
-          <div>
-            <h5>Router W5</h5>
-            <strong>400$</strong>
-            <i class="bi bi-bag fs-4"></i>
-          </div>
-        </div>
-
-        <div class="imazhet">
-          <img src="../img/Router.jpg" alt="Router">
-          <div>
-            <h5>Router W5</h5>
-            <strong>400$</strong>
-            <i class="bi bi-bag fs-4"></i>
-          </div>
+    
+</div>  
+        <div class="product-items">
+            <?php
+            if ($result->num_rows > 0) {
+                // Shfaqni çdo produkt
+                while ($product = $result->fetch_assoc()) {
+                    echo '<div class="product-item">';
+                    echo '<img src="' . $product['image_path'] . '" alt="Product Image" class="product-image">';
+                    echo '<div class="product-info">';
+                    echo '<h3>' . $product['name'] . '</h3>';
+                    echo '<p>' . $product['type'] . '</p>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+            } else {
+                echo '<p>No products available.</p>';
+            }
+            ?>
         </div>
     </div>
-      </div>
-
 </body>
 </html>
+
+<?php
+    $stmt->close();
+?>

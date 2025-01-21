@@ -17,14 +17,7 @@
         <a href="index.html" class="logo"><img src="../img/logo.png" alt=""></a>
         <ul class="nav-links">
             <li><a href="index.php">Home</a></li>
-            <li>
-                <a href="product.php">Products</a>
-                <ul>
-                    <li><a href="#">Switch</a></li>
-                    <li><a href="router.html">Router</a></li>
-                    <li><a href="#">Module Wifi</a></li>
-                </ul>
-            </li>
+            <li><a href="product.php">Products</a> </li>
             <li><a href="aboutus.php">About Us</a></li>
             <li><a href="contactus.php">Contact Us</a></li>
         </ul>

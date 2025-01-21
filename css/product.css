@@ -1,188 +1,8 @@
-#carouselExampleControls{
-    margin: 10px 200px;
-    margin-top: 20px;
-}
-
-.carousel-item{
-    width: 100%;
-    height: 500px;
-}
-
-.carousel-item img{
-    width: 100%;
-    height: 100%;
-}
-
-.renditi{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 80px;
-    justify-content: space-around;
-    margin-top: 100px;
-}
-
-.imazhet{
-    display: inline-block;
-    justify-content: space-between;
-    color: white;
-    border-radius: 100%;
-    text-align: center;
-    flex: 1 1 calc(26.33% - 10px);
-    max-width: calc(26.33% - 10px);
-
-}
-
-.imazhet img{
-    width: 300px;
-    border-radius: 10%;
-}
-
-.imazhet div{
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.imazhet div strong{
-    color: red;
-}
-
-/* Për rezolucione më të vogla se 1200px */
-@media (max-width: 1200px) {
-    .renditi {
-        gap: 50px;
-    }
-
-    .imazhet img {
-        width: 250px;
-    }
-}
-
-/* Për rezolucione më të vogla se 992px */
-@media (max-width: 992px) {
-    .renditi {
-        gap: 40px;
-    }
-
-    .imazhet img {
-        width: 220px;
-    }
-
-    .imazhet div {
-        flex-direction: column;
-    }
-}
-
-/* Për rezolucione më të vogla se 768px */
-@media (max-width: 768px) {
-    .renditi {
-        flex-direction: column;
-        gap: 30px;
-        align-items: center;
-    }
-
-    .imazhet {
-        max-width: 80%;
-    }
-
-    .imazhet img {
-        width: 200px;
-    }
-}
-
-/* Për rezolucione më të vogla se 576px */
-@media (max-width: 576px) {
-    .renditi {
-        gap: 20px;
-    }
-
-    .imazhet img {
-        width: 180px;
-    }
-}
-
-/* Për rezolucione më të vogla se 1200px */
-@media (max-width: 1200px) {
-    #carouselExampleControls {
-        margin: 10px 50px;
-    }
-
-    .carousel-item {
-        height: 400px;
-    }
-
-    .imazhet img {
-        width: 250px;
-    }
-}
-
-/* Për rezolucione më të vogla se 992px */
-@media (max-width: 992px) {
-    .renditi {
-        gap: 40px;
-        justify-content: center;
-    }
-
-    .imazhet {
-        flex: 1 1 calc(45% - 10px);
-        max-width: calc(45% - 10px);
-    }
-
-    .carousel-item {
-        height: 300px;
-    }
-
-    .imazhet img {
-        width: 200px;
-    }
-}
-
-/* Për rezolucione më të vogla se 768px */
-@media (max-width: 768px) {
-    #carouselExampleControls {
-        margin: 10px 20px;
-    }
-
-    .imazhet {
-        flex: 1 1 calc(100% - 20px);
-        max-width: calc(100% - 20px);
-    }
-
-    .carousel-item {
-        height: 250px;
-    }
-
-    .imazhet img {
-        width: 150px;
-    }
-
-    .imazhet div {
-        flex-direction: column;
-    }
-}
-
-/* Për rezolucione më të vogla se 576px */
-@media (max-width: 576px) {
-    .renditi {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .imazhet img {
-        width: 100px;
-    }
-
-    .carousel-item {
-        height: 200px;
-    }
-}
-
-
 #karusel {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* Për të vendosur butonat në pozita absolute */
+    position: relative; 
     width: 700px;
     margin: 0 auto;
 }
@@ -207,9 +27,62 @@
 }
 
 #btn-back {
-    left: 10px; /* Pozicioni i butonit të majtë */
+    left: 10px; 
 }
 
 #btn-next {
-    right: 10px; /* Pozicioni i butonit të djathtë */
+    right: 10px;
+}
+
+
+.product-list {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-items {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+    gap: 90px;
+    justify-content: center;
+}
+
+.product-item {
+    width: 400px; 
+    padding: 15px;
+    background-color:rgb(0, 0, 0, 0.3   );
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease-in-out;
+    
+}
+
+.product-item:hover {
+    transform: scale(1.05);
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product-info {
+    margin-top: 10px;
+}
+
+.product-item h3 {
+    font-size: 18px;
+    color: white;
+    margin: 5px 0;
+}
+
+
+
+.product-item p {
+    font-size: 14px;
+    color: #777;
 }

@@ -86,25 +86,67 @@
             </table>
         </div>
 
-    <div class="rendi3">
-            <div style="position: absolute; top:0px; right: 0px">
-                <button style="background-color:blue; padding: 10px; border-radius: 30%;">Add product</button>
-            </div>
-        <table border="1px">
-            <th>ID</th>
-            <th>Type</th>
-            <th>Model</th>
-            <th>Name</th>
-            <th>Person ID</th>
-            <tr>
-                <td>12345678</td>
-                <td>LCD</td>
-                <td>S1227i</td>
-                <td>Desktop</td>
-                <td>Person ID</td>
-            </tr>
-        </table>
+        <div class="rendi3">
+        <div class="section1">
+            <h3>Shto Produkt</h3>
+            <form action="../PHP/add_product.php" method="POST" enctype="multipart/form-data">
+                <label for="name">Emri:</label>
+                <input type="text" name="name" id="name" required>
+                <br>
+                <label for="type">Tipi:</label>
+                <input type="text" name="type" id="type" required>
+                <br>
+                <label for="model">Modeli:</label>
+                <input type="text" name="model" id="model" required>
+                <br>
+                <label for="image">Ngarko Imazh:</label>
+                <input type="file" name="image" id="image" accept="image/*" required>
+                <br>
+                <button type="submit">Shto Produkt</button>
+            </form>
+            
+        </div>
+
+        <!-- Product List -->
+        <div>
+            <h2>Lista e Produkteve</h2>
+            <table border="1px">
+                <tr>
+                    <th>ID</th>
+                    <th>Emri</th>
+                    <th>Tipi</th>
+                    <th>Modeli</th>
+                    <th>Imazhi</th>
+                    <th>Fshi</th>
+                </tr>
+                <?php
+                    include_once("config2.php");
+
+                    $stmt = $connect->prepare("SELECT * FROM products");
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+
+                    if ($result->num_rows > 0) {
+                        while ($product = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>{$product['id']}</td>";
+                            echo "<td>{$product['name']}</td>";
+                            echo "<td>{$product['type']}</td>";
+                            echo "<td>{$product['model']}</td>";
+                            echo "<td><img src='{$product['image_path']}' alt='Product Image' width='50'></td>";
+                            echo "<td><a href='../PHP/delete_product.php?id={$product['id']}'>Fshi</a></td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='6'>Nuk ka produkte.</td></tr>";
+                    }
+
+                    $stmt->close();
+                ?>
+            </table>
+        </div>
     </div>
+
 
     <div class="rendi4">
         <div>
