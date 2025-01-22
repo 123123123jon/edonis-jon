@@ -9,7 +9,7 @@ if(isset($_GET['id'])){
 
     $sql = "DELETE FROM user WHERE ID=:id";
 
-    $fshije_personin = $connect->prepare($sql);
+    $fshije_personin = $conn->prepare($sql);
 
     $fshije_personin->bindParam(':id', $id);
 

@@ -120,9 +120,8 @@
                     <th>Fshi</th>
                 </tr>
                 <?php
-                    include_once("config2.php");
 
-                    $stmt = $connect->prepare("SELECT * FROM products");
+                    $stmt = $conn->prepare("SELECT * FROM products");
                     $stmt->execute();
                     $result = $stmt->get_result();
 

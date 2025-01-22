@@ -1,5 +1,5 @@
 <?php
-include_once("config2.php");
+include_once("config.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         move_uploaded_file($image['tmp_name'], $imagePath);
 
         // Ruaj produktin në bazën e të dhënave pa çmim
-        $stmt = $connect->prepare("INSERT INTO products (name, type, model, image_path) VALUES (?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO products (name, type, model, image_path) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssss", $name, $type, $model, $imagePath);
 
         if ($stmt->execute()) {

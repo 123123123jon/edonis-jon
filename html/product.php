@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include_once("../PHP/config2.php"); 
-    $stmt = $connect->prepare("SELECT * FROM products");
+    include_once("../PHP/config.php"); 
+    $stmt = $conn->prepare("SELECT * FROM products");
     $stmt->execute();
     $result = $stmt->get_result();
 ?>

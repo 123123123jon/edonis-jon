@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
     $stmt->fetch();
     $stmt->close();
 
-    $stmt = $connect->prepare("DELETE FROM products WHERE id = ?");
+    $stmt = $conn->prepare("DELETE FROM products WHERE id = ?");
     $stmt->bind_param("i", $id);
     if ($stmt->execute()) {
         if (file_exists($imagePath)) {
