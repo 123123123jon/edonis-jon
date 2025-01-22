@@ -4,7 +4,7 @@ include_once("config.php");
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $stmt = $connect->prepare("SELECT image_path FROM products WHERE id = ?");
+    $stmt = $conn->prepare("SELECT image_path FROM products WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $stmt->bind_result($imagePath);
