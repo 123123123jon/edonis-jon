@@ -34,7 +34,7 @@
         <p>If you have any questions, feedback, or inquiries about our products, please don't hesitate to reach out!</p>
     
         <div class="contact-form">
-            <form action="#" method="POST">
+            <form action="../PHP/contact.php" method="POST">
                 <div class="form-group">
                     <label for="name">Your Full Name:</label>
                     <input type="text" id="name" name="name" required placeholder="Enter your name">
@@ -47,7 +47,7 @@
                     <label for="message">Your Message:</label>
                     <textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
                 </div>
-                <button type="submit" class="btn">Send Message</button>
+                <button type="submit" name="submit" class="btn">Send Message</button>
             </form>
         </div>
 
