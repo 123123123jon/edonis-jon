@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
         if (file_exists($imagePath)) {
             unlink($imagePath); // Fshi imazhin
         }
-        echo "Produkti u fshi me sukses.";
+        header("Location: ../PHP/admin.php");
     } else {
         echo "Gabim gjatë fshirjes së produktit.";
     }

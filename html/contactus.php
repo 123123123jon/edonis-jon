@@ -34,7 +34,7 @@
         <p>If you have any questions, feedback, or inquiries about our products, please don't hesitate to reach out!</p>
     
         <div class="contact-form">
-            <form action="../PHP/contact.php" method="POST">
+            <form method="post" action="../PHP/contact.php">
                 <div class="form-group">
                     <label for="name">Your Full Name:</label>
                     <input type="text" id="name" name="name" required placeholder="Enter your name">
