@@ -102,6 +102,21 @@
                 <label for="image">Ngarko Imazh:</label>
                 <input type="file" name="image" id="image" accept="image/*" required>
                 <br>
+                <label for="admin_name">Admini:</label>
+                <select name="admin_name" id="admin_name" required>
+                <option value="">Zgjidh Adminin</option>
+            <?php
+                $sql = "SELECT * FROM user WHERE role = 'Admin'";
+                $getAdmins = $connect->prepare($sql);
+                $getAdmins->execute();
+                $admins = $getAdmins->fetchAll();
+
+                foreach ($admins as $admin) {
+                    echo "<option value='{$admin['Username']}'>{$admin['Emri']} ({$admin['Username']})</option>";
+                }
+            ?>
+            </select>
+                <br>
                 <button type="submit">Shto Produkt</button>
             </form>
             
@@ -117,6 +132,7 @@
                     <th>Tipi</th>
                     <th>Modeli</th>
                     <th>Imazhi</th>
+                    <th>Admini</th>
                     <th>Fshi</th>
                 </tr>
                 <?php
@@ -133,11 +149,12 @@
                             echo "<td>{$product['type']}</td>";
                             echo "<td>{$product['model']}</td>";
                             echo "<td><img src='{$product['image_path']}' alt='Product Image' width='50'></td>";
+                            echo "<td>{$product['admin_name']}</td>";
                             echo "<td><a href='../PHP/delete_product.php?id={$product['id']}'>Fshi</a></td>";
                             echo "</tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='6'>Nuk ka produkte.</td></tr>";
+                        echo "<tr><td colspan='7'>Nuk ka produkte.</td></tr>";
                     }
 
                     $stmt->close();
