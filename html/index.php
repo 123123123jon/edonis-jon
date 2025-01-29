@@ -39,7 +39,7 @@
         <div class="welcome-message">
             <h1>Welcomee to the World's Smartest Building Automation System</h1>
             <p>All-in-one control. In perfect harmony.</p>
-            <a href="product.html" class="btn">Explore Products</a>
+            <a href="product.php" class="btn">Explore Products</a>
         </div>
     </div>
 </body>

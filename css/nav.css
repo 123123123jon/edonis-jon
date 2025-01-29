@@ -12,7 +12,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Shtresa me efektin e opacitetit dhe blur */
+
 body::before {
     content: "";
     position: fixed;
@@ -31,7 +31,7 @@ body::before {
     align-items: center;
     justify-content: space-between;
     background-color: rgba(2, 35, 97, 0.8);
-    padding: 15px 30px;
+    padding: 15px  30px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
@@ -78,42 +78,8 @@ body::before {
 .nav-links li a:hover {
     color: rgba(0, 0, 0, 0.8);
 }
+
 /* Stilet për lidhjet kryesore */
-
-/* Stilet për dropdown-in */
-.nav-links li ul {
-    display: none;
-    position: absolute;
-    background-color: rgba(0, 67, 211, 0.5);
-    border-radius: 5px;
-    padding: 10px 0;
-    min-width: 180px;
-    top: 100%;
-    left: 0;
-    list-style-type: none;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s, transform 0.3s;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.nav-links li:hover ul {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.nav-links li ul li a {
-    padding: 10px 15px;
-    color: white;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.nav-links li ul li a:hover {
-    background-color: rgba(0, 132, 255, 0.8);
-}
-/* Stilet për dropdown-in */
 
 .user-options {
     display: flex;
@@ -140,10 +106,12 @@ body::before {
     transition: transform 0.3s;
 }
 
+
 /* Për rezolucione më të vogla se 1200px */
 @media (max-width: 1200px) {
     .navbar {
         padding: 10px 20px;
+        
     }
 
     .nav-links {
@@ -151,44 +119,12 @@ body::before {
     }
 }
 
-/* Për rezolucione më të vogla se 992px */
-@media (max-width: 992px) {
-    .navbar {
-        padding: 10px 20px;
-    }
-
-    .nav-links {
-        gap: 30px;
-    }
-
-    .nav-links li a {
-        padding: 10px 15px;
-    }
-
-    .user-options {
-        gap: 10px;
-    }
-
-    .logo img {
-        width: 80px;
-    }
-}
-
-/* Për rezolucione më të vogla se 1200px */
-@media (max-width: 1200px) {
-    .navbar {
-        padding: 10px 20px;
-    }
-
-    .nav-links {
-        gap: 40px;
-    }
-}
 
 /* Për rezolucione më të vogla se 992px */
 @media (max-width: 992px) {
     .navbar {
         padding: 10px 20px;
+        width: 700px;
     }
 
     .nav-links {
@@ -214,6 +150,7 @@ body::before {
         flex-direction: column;
         align-items: center;
         padding: 10px 20px;
+        
     }
 
     .nav-links {
@@ -242,10 +179,9 @@ body::before {
     }
 }
 
-/* Për rezolucione më të vogla se 576px */
 @media (max-width: 576px) {
     .navbar {
-        padding: 10px 15px;
+        width: 600px;
     }
 
     .nav-links {
