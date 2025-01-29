@@ -31,6 +31,12 @@
 
         $users_ne_tabel = $getUsers->fetchAll();
 
+        $sqlt = "SELECT * FROM contact";
+        $getContact = $connect->prepare($sqlt);
+        $getContact->execute();
+
+        $Te_gjithe_contact= $getContact->fetchAll();
+
     ?>
 
 
@@ -51,7 +57,7 @@
     ?>
 
     <div style="text-align: center; background-color: rgba(2, 35, 97, 0.8); width: 250px; height: 100vh;">
-        <img border="3px" style="width: 100px; border-radius: 40%; margin-top: 10px; border-radius: 40%;" src="../img/JonKomani.jpg" alt="logoja">
+        <img border="3px" style="width: 100px; border-radius: 40%; margin-top: 10px; border-radius: 40%;" src="../img/user.jpg" alt="logoja">
         <h3 style="padding-bottom: 40px;"><?php echo $_SESSION['username'] ?></h3>
 
         <ul type="none" class="lista">
@@ -68,8 +74,7 @@
 
     <div class="rendi2">
             <div style="position: absolute; top:0px; right: 0px">
-                <button style="background-color:blue; padding: 10px; border-radius: 30%;">Add admin</button>
-                <button style="background-color:blue; padding: 10px; border-radius: 30%;">Add User</button>
+                <button style="background-color:blue; padding: 10px; border-radius: 30%;"><a href="../html/create.html">Add User</a></button>
             </div>
             <table border="1px">
                 <th>ID</th>
@@ -104,97 +109,118 @@
         </div>
 
         <div class="rendi3">
-        <div class="section1">
-            <h3>Shto Produkt</h3>
-            <form action="../PHP/add_product.php" method="POST" enctype="multipart/form-data">
-                <label for="name">Emri:</label>
-                <input type="text" name="name" id="name" required>
-                <br>
-                <label for="type">Tipi:</label>
-                <input type="text" name="type" id="type" required>
-                <br>
-                <label for="model">Modeli:</label>
-                <input type="text" name="model" id="model" required>
-                <br>
-                <label for="image">Ngarko Imazh:</label>
-                <input type="file" name="image" id="image" accept="image/*" required>
-                <br>
-                <label for="admin_name">Admini:</label>
-                <select name="admin_name" id="admin_name" required>
-                <option value="">Zgjidh Adminin</option>
-            <?php
-                $sql = "SELECT * FROM user WHERE role = 'Admin'";
-                $getAdmins = $connect->prepare($sql);
-                $getAdmins->execute();
-                $admins = $getAdmins->fetchAll();
+            <div class="section1">
+                <h3>Shto Produkt</h3>
+                <form action="../PHP/add_product.php" method="POST" enctype="multipart/form-data">
+                    <label for="name">Emri:</label>
+                    <input type="text" name="name" id="name" required>
+                    <br>
+                    <label for="type">Tipi:</label>
+                    <input type="text" name="type" id="type" required>
+                    <br>
+                    <label for="model">Modeli:</label>
+                    <input type="text" name="model" id="model" required>
+                    <br>
+                    <label for="image">Ngarko Imazh:</label>
+                    <input type="file" name="image" id="image" accept="image/*" required>
+                    <br>
+                    <label for="admin_name">Admini:</label>
+                    <select name="admin_name" id="admin_name" required>
+                    <option value="">Zgjidh Adminin</option>
+                <?php
+                    $sql = "SELECT * FROM user WHERE role = 'Admin'";
+                    $getAdmins = $connect->prepare($sql);
+                    $getAdmins->execute();
+                    $admins = $getAdmins->fetchAll();
 
-                foreach ($admins as $admin) {
-                    echo "<option value='{$admin['Username']}'>{$admin['Emri']} ({$admin['Username']})</option>";
-                }
-            ?>
-            </select>
-                <br>
-                <button type="submit">Shto Produkt</button>
-            </form>
-            
+                    foreach ($admins as $admin) {
+                        echo "<option value='{$admin['Username']}'>{$admin['Emri']} ({$admin['Username']})</option>";
+                    }
+                ?>
+                </select>
+                    <br>
+                    <button type="submit">Shto Produkt</button>
+                </form>
+                
+            </div>
+
+            <div>
+                <h2>Lista e Produkteve</h2>
+                <table border="1px">
+                    <tr>
+                        <th>ID</th>
+                        <th>Emri</th>
+                        <th>Tipi</th>
+                        <th>Modeli</th>
+                        <th>Imazhi</th>
+                        <th>Admini</th>
+                        <th>Fshi</th>
+                    </tr>
+                    <?php
+
+                        $stmt = $conn->prepare("SELECT * FROM products");
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+
+                        if ($result->num_rows > 0) {
+                            while ($product = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td>{$product['id']}</td>";
+                                echo "<td>{$product['name']}</td>";
+                                echo "<td>{$product['type']}</td>";
+                                echo "<td>{$product['model']}</td>";
+                                echo "<td><img src='{$product['image_path']}' alt='Product Image' width='50'></td>";
+                                echo "<td>{$product['admin_name']}</td>";
+                                echo "<td><a href='../PHP/delete_product.php?id={$product['id']}'>Fshi</a></td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='7'>Nuk ka produkte.</td></tr>";
+                        }
+
+                        $stmt->close();
+                    ?>
+                </table>
+            </div>
         </div>
 
-        <!-- Product List -->
-        <div>
-            <h2>Lista e Produkteve</h2>
+        <div class="rendi4">
+            <div class="stats-box">
+                <h2>Number of Users</h2>
+                <p><?php echo $totalUsers; ?></p>
+            </div>
+            <div class="stats-box">
+                <h2>Number of Products</h2>
+                <p><?php echo $totalProducts; ?></p>        
+            </div>
+        </div>
+
+        <div class="rendi1">
             <table border="1px">
-                <tr>
                     <th>ID</th>
                     <th>Emri</th>
-                    <th>Tipi</th>
-                    <th>Modeli</th>
-                    <th>Imazhi</th>
-                    <th>Admini</th>
-                    <th>Fshi</th>
-                </tr>
-                <?php
+                    <th>Email</th>
+                    <th>Mesazhi</th>
 
-                    $stmt = $conn->prepare("SELECT * FROM products");
-                    $stmt->execute();
-                    $result = $stmt->get_result();
+                    <?php
 
-                    if ($result->num_rows > 0) {
-                        while ($product = $result->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td>{$product['id']}</td>";
-                            echo "<td>{$product['name']}</td>";
-                            echo "<td>{$product['type']}</td>";
-                            echo "<td>{$product['model']}</td>";
-                            echo "<td><img src='{$product['image_path']}' alt='Product Image' width='50'></td>";
-                            echo "<td>{$product['admin_name']}</td>";
-                            echo "<td><a href='../PHP/delete_product.php?id={$product['id']}'>Fshi</a></td>";
-                            echo "</tr>";
+                        if(count($Te_gjithe_contact)>0) {
+                            foreach ($Te_gjithe_contact as $cone) {
+                                echo "<tr>";
+                                echo "<td>{$cone['Id']}</td>";
+                                echo "<td>{$cone['Emri']}</td>";
+                                echo "<td>{$cone['Email']}</td>";
+                                echo "<td>{$cone['Mesazhi']}</td>";
+                                echo "</tr>";
+                            }
+                        } else{
+                            echo "<tr><td> Nuk ka perdorues</td></tr>";
                         }
-                    } else {
-                        echo "<tr><td colspan='7'>Nuk ka produkte.</td></tr>";
-                    }
 
-                    $stmt->close();
-                ?>
+                    ?>
+
             </table>
         </div>
-    </div>
-
-
-
-    <div class="rendi4">
-    <div class="stats-box">
-        <h2>Number of Users</h2>
-        <p><?php echo $totalUsers; ?></p>
-    </div>
-    <div class="stats-box">
-        <h2>Number of Products</h2>
-        <p><?php echo $totalProducts; ?></p>
-
-
-        
-    </div>
-</div>
 
 </div>
 

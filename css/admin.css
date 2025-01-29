@@ -78,6 +78,22 @@ th, td{
     align-items: center;
 }
 
+.rendi1{
+    justify-content: center;
+    align-items: center;
+    flex: 1; /* Kjo perfshin per te marr te gjithe pjesen e mbetur qe e shte boshe per nje div */
+    height: 100vh;
+    display: none;
+}
+
+.rendi1 table{
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    justify-self: center;
+    text-align: center;
+}
+
 .rendi4 div {
     background-color: rgba(2, 35, 97, 0.8);
     padding: 15px;

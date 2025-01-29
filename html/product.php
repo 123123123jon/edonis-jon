@@ -37,32 +37,30 @@
             </a>
         </div>
     </div>
-
-    <div id="karusel">
-        <button id="btn-back" class="button" onclick="previousImage()">Back</button>
-        <img name="mySlide" id="drejto" />
-        <button id="btn-next" class="button" onclick="vazhdo()">Next</button>
-
-
-    
-</div>  
-        <div class="product-items">
-            <?php
-            if ($result->num_rows > 0) {
-                // Shfaqni çdo produkt
-                while ($product = $result->fetch_assoc()) {
-                    echo '<div class="product-item">';
-                    echo '<img src="' . $product['image_path'] . '" alt="Product Image" class="product-image">';
-                    echo '<div class="product-info">';
-                    echo '<h3>' . $product['name'] . '</h3>';
-                    echo '<p>' . $product['type'] . '</p>';
-                    echo '</div>';
-                    echo '</div>';
+    <div>
+        <div id="karusel">
+            <button id="btn-back" class="button" onclick="previousImage()">Back</button>
+            <img name="mySlide" id="drejto" />
+            <button id="btn-next" class="button" onclick="vazhdo()">Next</button>   
+        </div>  
+            <div class="product-items">
+                <?php
+                if ($result->num_rows > 0) {
+                    // Shfaqni çdo produkt
+                    while ($product = $result->fetch_assoc()) {
+                        echo '<div class="product-item">';
+                        echo '<img src="' . $product['image_path'] . '" alt="Product Image" class="product-image">';
+                        echo '<div class="product-info">';
+                        echo '<h3>' . $product['name'] . '</h3>';
+                        echo '<p>' . $product['type'] . '</p>';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                } else {
+                    echo '<p>No products available.</p>';
                 }
-            } else {
-                echo '<p>No products available.</p>';
-            }
-            ?>
+                ?>
+            </div>
         </div>
     </div>
 </body>
