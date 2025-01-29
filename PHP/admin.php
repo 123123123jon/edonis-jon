@@ -33,6 +33,23 @@
 
     ?>
 
+
+
+    <?php
+    
+        $sqlUsers = "SELECT COUNT(*) as totalUsers FROM user";
+        $stmtUsers = $connect->prepare($sqlUsers);
+        $stmtUsers->execute();
+        $resultUsers = $stmtUsers->fetch();
+        $totalUsers = $resultUsers['totalUsers'];
+
+        $sqlProducts = "SELECT COUNT(*) as totalProducts FROM products";
+        $stmtProducts = $connect->prepare($sqlProducts);
+        $stmtProducts->execute();
+        $resultProducts = $stmtProducts->fetch();
+        $totalProducts = $resultProducts['totalProducts'];
+    ?>
+
     <div style="text-align: center; background-color: rgba(2, 35, 97, 0.8); width: 250px; height: 100vh;">
         <img border="3px" style="width: 100px; border-radius: 40%; margin-top: 10px; border-radius: 40%;" src="../img/JonKomani.jpg" alt="logoja">
         <h3 style="padding-bottom: 40px;"><?php echo $_SESSION['username'] ?></h3>
@@ -164,20 +181,24 @@
     </div>
 
 
+
     <div class="rendi4">
-        <div>
-            <h2>Number of Users</h2>
-            <p>Numri</p>
-        </div>
-        <div>
-            <h2>Number of Product sales</h2>
-            <p>Numri</p>
-        </div>
-        <div>
-            <h2>Number of Product sales</h2>
-            <p>Numri</p>
-        </div>
+    <div class="stats-box">
+        <h2>Number of Users</h2>
+        <p><?php echo $totalUsers; ?></p>
     </div>
+    <div class="stats-box">
+        <h2>Number of Products</h2>
+        <p><?php echo $totalProducts; ?></p>
+
+
+        
+    </div>
+</div>
+
+</div>
+
+
 </body>
 </html>
 <script src="../JS/admin.js"></script>

@@ -72,16 +72,45 @@ th, td{
     display: none;
 }
 
-.rendi4{
-    flex-direction: row;
+
+.rendi4 {
     justify-content: center;
     align-items: center;
-    display: none;
 }
 
-.rendi4 div{
-    color: white;
+.rendi4 div {
+    background-color: rgba(2, 35, 97, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 250px; 
+    margin-left: 200px; 
 }
+
+.stats-box {
+    background-color: rgba(2, 35, 97, 0.9);  
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 150px;  
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.stats-box:hover {
+    transform: scale(1.05);
+}
+
+.stats-box h2 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.stats-box p {
+    font-size: 20px;  
+    font-weight: bold;
+}
+
 
 .buttoni{
     padding: 10px;
