@@ -22,7 +22,13 @@
             <li><a href="contactus.php">Contact Us</a></li>
         </ul>
         <div class="user-options">
-            <p style="color: white;"><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Guest'; ?></p>
+        <?php 
+        if (isset($_SESSION['username']) && isset($_SESSION['role']) && $_SESSION['role'] === 'Admin') {
+            echo '<a href="../PHP/admin.php" style="color: white; text-decoration: none;">' . htmlspecialchars($_SESSION['username']) . '</a>';
+        } else {
+            echo '<p style="color: white; text-decoration: none;">'. htmlspecialchars($_SESSION['username'] ?? 'Guest'). '</p>';
+        }
+        ?>
             <?php if (isset($_SESSION['username'])): ?>
                 <a href="../PHP/logout.php" class="login">Log Out</a>
             <?php else: ?>
